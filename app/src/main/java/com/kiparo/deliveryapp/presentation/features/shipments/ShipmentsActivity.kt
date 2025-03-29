@@ -33,6 +33,7 @@ import com.kiparo.deliveryapp.presentation.features.shipments.ui.ShipmentsTopBar
 import kotlinx.coroutines.Dispatchers
 
 class ShipmentsActivity : ComponentActivity() {
+    //мой тестовый первый проект
 
     private val shipmentRepository: ShipmentRepository = ShipmentRepositoryImpl(
         shipmentApi = provideShipmentApi(apiUrl = BuildConfig.API_URL, moshi = provideMoshi()),
