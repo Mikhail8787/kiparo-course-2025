@@ -14,12 +14,14 @@
     <string name="status_ready_to_pickup">Ready to pickup</string>
     <string name="status_returned_to_sender">Returned to sender</string>
     <string name="status_not_ready">Not ready</string>
-    <string name="id">id</string>
+    <string name="id">ID</string>
     <string name="status">Status</string>
     <string name="sender">Sender</string>
-    <string name="more">More</string>
+    <string name="more">more</string>
     <string name="ready_to_pickup">Ready to pickup</string>
     <string name="others">Others</string>
     <string name="waiting_picked_up_to">Waiting to be picked up to</string>
+    <string name="delivery_truck">delivery track</string>
+    <string name="issued_for_delivery">"Issued for delivery "</string>
 
 </resources>

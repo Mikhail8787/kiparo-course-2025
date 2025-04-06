@@ -4,4 +4,8 @@
 
 package com.kiparo.deliveryapp.presentation.core_ui.theme
 
-// TODO Implement
+import androidx.compose.ui.unit.dp
+
+val space_16 = 16.dp
+
+val padding_16 = 16.dp
