@@ -28,7 +28,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kiparo.deliveryapp.R
+import com.kiparo.deliveryapp.presentation.core_ui.theme.bodyMediumBold
 import com.kiparo.deliveryapp.presentation.utils.formatDateTime
 import java.time.ZonedDateTime
 import java.time.temporal.Temporal
@@ -42,11 +44,9 @@ fun ShipmentDeliveryCard(
     modifier: Modifier = Modifier
 ) {
     val backgroundColor = MaterialTheme.colorScheme.surface
-    val buttonBackgroundColor = MaterialTheme.colorScheme.background
     Column {
         Card(
             modifier = modifier
-                .fillMaxWidth()
                 .background(backgroundColor)
         ) {
             Column(
@@ -54,7 +54,6 @@ fun ShipmentDeliveryCard(
                     .background(backgroundColor)
                     .padding(16.dp)
             ) {
-
                 // ID
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -64,12 +63,13 @@ fun ShipmentDeliveryCard(
                     Column {
                         Text(
                             text = stringResource(R.string.id),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                             style = MaterialTheme.typography.bodySmall,
                         )
                         Text(
                             text = id,
                             style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.Bold
+                            color = MaterialTheme.colorScheme.onSurface,
                         )
                     }
                     Image(
@@ -86,12 +86,13 @@ fun ShipmentDeliveryCard(
                     Column {
                         Text(
                             text = stringResource(R.string.status).uppercase(),
-                            style = MaterialTheme.typography.bodySmall,
+                            style = MaterialTheme.typography.titleSmall.copy(fontSize = 11.sp),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Text(
                             text = status,
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.Bold
+                            style = MaterialTheme.typography.bodyMediumBold,
+                            color = MaterialTheme.colorScheme.onSurface,
                         )
                     }
                     Column {
@@ -120,22 +121,21 @@ fun ShipmentDeliveryCard(
                 ) {
                     Column {
                         Text(
-                            text = stringResource(R.string.sender),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.Gray
+                            text = stringResource(R.string.sender).uppercase(),
+                            style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
                             text = sender,
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.Bold
+                            style = MaterialTheme.typography.bodyMediumBold,
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                     }
 
                     Button(
                         onClick = { /*TODO*/ },
                         colors = ButtonDefaults.buttonColors(backgroundColor),
-                        contentPadding = PaddingValues(0.dp)
-
+                        contentPadding = PaddingValues(0.dp),
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(text = stringResource(R.string.more),

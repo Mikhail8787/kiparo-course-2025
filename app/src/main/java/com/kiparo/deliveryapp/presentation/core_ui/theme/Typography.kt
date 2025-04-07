@@ -8,6 +8,7 @@ import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextGeometricTransform
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -28,11 +29,7 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         lineHeight = 16.sp,
         letterSpacing = 0.4.sp
-
     ),
-
-
-
     bodyMedium = TextStyle(
         fontFamily = montserratFontFamily,
         fontSize = 15.sp,
@@ -42,7 +39,7 @@ val Typography = Typography(
     ),
     labelSmall = TextStyle(
         fontFamily = montserratFontFamily,
-        fontSize = 15.sp,
+        fontSize = 11.sp,
         fontWeight = FontWeight.SemiBold,
         lineHeight = 16.sp,
         letterSpacing = 0.4.sp
