@@ -14,5 +14,6 @@ enum class ShipmentStatus {
     PICKUP_TIME_EXPIRED,
     READY_TO_PICKUP,
     RETURNED_TO_SENDER,
-    NOT_READY
+    NOT_READY,
+    ISSUED_FOR_DELIVERY
 }

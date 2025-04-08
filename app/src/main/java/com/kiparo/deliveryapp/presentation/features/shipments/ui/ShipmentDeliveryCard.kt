@@ -30,20 +30,42 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kiparo.deliveryapp.R
+import com.kiparo.deliveryapp.domain.models.Customer
+import com.kiparo.deliveryapp.domain.models.ShipmentStatus
+import com.kiparo.deliveryapp.domain.models.ShipmentType
 import com.kiparo.deliveryapp.presentation.core_ui.theme.bodyMediumBold
 import com.kiparo.deliveryapp.presentation.utils.formatDateTime
+import com.kiparo.deliveryapp.presentation.utils.iconResId
+import com.kiparo.deliveryapp.presentation.utils.titleResId
 import java.time.ZonedDateTime
 import java.time.temporal.Temporal
 
 @Composable
 fun ShipmentDeliveryCard(
     id: String,
-    status: String,
+    status: ShipmentStatus,
     sender: String,
-    imageResId:Int,
-    modifier: Modifier = Modifier
+    imageResId: ShipmentType,
+    modifier: Modifier = Modifier,
+
 ) {
     val backgroundColor = MaterialTheme.colorScheme.surface
+    val paint = painterResource(id = imageResId.iconResId())
+    val title = stringResource(id = status.titleResId())
+    var date = ""
+    val status2 = ""
+    val customer1 =Customer(name = null,
+        phoneNumber = "84564",
+        email = "pavel@kiparo.ru"
+        )
+    val customer2 =Customer(name = null,
+        phoneNumber = "84564",
+        email = "timofey@kiparo.com"
+    )
+    val customer3 =Customer(name = "Konstantin Ivanov",
+        phoneNumber = "84564",
+        email = "email"
+    )
     Column {
         Card(
             modifier = modifier
@@ -73,15 +95,17 @@ fun ShipmentDeliveryCard(
                         )
                     }
                     Image(
-                        painter = painterResource(id = imageResId), // Replace with your actual image resource
+                        painter = painterResource(id = imageResId.iconResId()), // Replace with your actual image resource
                         contentDescription = stringResource(R.string.delivery_truck),
                         modifier = modifier.size(48.dp)
                     )
                 }
                 Spacer(modifier = modifier.height(8.dp))
 
-                Row(horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()) {
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     // Status
                     Column {
                         Text(
@@ -90,25 +114,31 @@ fun ShipmentDeliveryCard(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Text(
-                            text = status,
+                            text = stringResource(id = status.titleResId()),
                             style = MaterialTheme.typography.bodyMediumBold,
                             color = MaterialTheme.colorScheme.onSurface,
                         )
+                        when (status) {
+                            ShipmentStatus.READY_TO_PICKUP -> {
+                                date = formatDateTime(ZonedDateTime.now())
+                            }
+                            ShipmentStatus.DELIVERED -> {
+                                date = formatDateTime(ZonedDateTime.now())
+                            }
+                            else -> {
+                            }
+                        }
                     }
                     Column {
                         Text(
                             text = stringResource(R.string.status).uppercase(),
                             style = MaterialTheme.typography.bodySmall,
                         )
-                        Row {
-                            formatDateTime(ZonedDateTime.now())
-                            Text(
-                                text = formatDateTime(ZonedDateTime.now()),
-                                style = MaterialTheme.typography.bodySmall,
-                            )
-
-                        }
-
+                        Text(
+                            text = date,
+//                            formatDateTime(ZonedDateTime.now()),
+                            style = MaterialTheme.typography.bodySmall,
+                        )
                     }
                 }
                 Spacer(modifier = Modifier.height(8.dp))
@@ -126,7 +156,7 @@ fun ShipmentDeliveryCard(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = sender,
+                            text = customer1.name ?: customer1.email,
                             style = MaterialTheme.typography.bodyMediumBold,
                             color = MaterialTheme.colorScheme.onSurface
                         )
@@ -138,9 +168,11 @@ fun ShipmentDeliveryCard(
                         contentPadding = PaddingValues(0.dp),
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(text = stringResource(R.string.more),
+                            Text(
+                                text = stringResource(R.string.more),
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurface) //bodySmallBold
+                                color = MaterialTheme.colorScheme.onSurface
+                            ) //bodySmallBold
                             Image(
                                 painter = painterResource(id = R.drawable.ic_arrowright),
                                 contentDescription = stringResource(R.string.delivery_truck),
@@ -159,8 +191,8 @@ fun ShipmentDeliveryCard(
 private fun Preview() {
     ShipmentDeliveryCard(
         id = "235678654323567889762229",
-        status ="Issued for delivery",
-        imageResId = R.drawable.ic_auto,
-        sender = "pavel@kipro.ru"
+        imageResId = ShipmentType.COURIER,
+        status = ShipmentStatus.NOT_READY,
+        sender = "pavel@kiparo.ru",
     )
 }

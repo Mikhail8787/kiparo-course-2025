@@ -14,6 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kiparo.deliveryapp.R
 import com.kiparo.deliveryapp.domain.models.ShipmentGroup
+import com.kiparo.deliveryapp.domain.models.ShipmentStatus
+import com.kiparo.deliveryapp.domain.models.ShipmentType
 import com.kiparo.deliveryapp.domain.models.mockShipmentsGroup
 import com.kiparo.deliveryapp.presentation.core_ui.theme.space_16
 
@@ -28,6 +30,11 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
 
 
         ) {
+        val issuedForDelivery = ShipmentStatus.ISSUED_FOR_DELIVERY
+        val readyToPickup = ShipmentStatus.READY_TO_PICKUP
+        val delivered = ShipmentStatus.DELIVERED
+
+
 
         item {
             ShipmentSectionTitle(title = "Ready to pickup")
@@ -37,9 +44,10 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
         item {
             ShipmentDeliveryCard(
                 id = "235678654323567889762229",
-                status = "Issue for delivery",
+//                status = "Issue for delivery",
                 sender = "pavel@kiparo.ru",
-                imageResId = R.drawable.ic_auto
+                status = issuedForDelivery,
+                imageResId = ShipmentType.COURIER,
             ) // Передаем каждую карточку
         }
         item {
@@ -53,9 +61,10 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
         item {
             ShipmentDeliveryCard(
                 id = "235678654323567889762230",
-                status = "Ready to pickup",
+//                status = "Ready to pickup",
                 sender = "timofey@kipro.ru",
-                imageResId = R.drawable.ic_build
+                status = readyToPickup,
+                imageResId = ShipmentType.PARCEL_LOCKER
             )
         }
 
@@ -67,9 +76,10 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
         item {
             ShipmentDeliveryCard(
                 id = "235678654323567889762230",
-                status = "Delivered",
+//                status = "Delivered",
                 sender = "Konstantin Ivanov",
-                imageResId = R.drawable.ic_build
+                status = delivered,
+                imageResId = ShipmentType.PARCEL_LOCKER
             ) // Передаем каждую карточку
         }
 

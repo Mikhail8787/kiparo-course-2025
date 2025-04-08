@@ -60,4 +60,7 @@ fun ShipmentStatus.titleResId(): Int =
         ShipmentStatus.NOT_READY -> {
             R.string.status_not_ready
         }
+        ShipmentStatus.ISSUED_FOR_DELIVERY -> {
+            R.string.issued_for_delivery
+        }
     }
