@@ -47,13 +47,12 @@ fun ShipmentDeliveryCard(
     sender: String,
     imageResId: ShipmentType,
     modifier: Modifier = Modifier,
-
+    status2: String
 ) {
     val backgroundColor = MaterialTheme.colorScheme.surface
     val paint = painterResource(id = imageResId.iconResId())
     val title = stringResource(id = status.titleResId())
     var date = ""
-    val status2 = ""
     val customer1 =Customer(name = null,
         phoneNumber = "84564",
         email = "pavel@kiparo.ru"
@@ -131,7 +130,7 @@ fun ShipmentDeliveryCard(
                     }
                     Column {
                         Text(
-                            text = stringResource(R.string.status).uppercase(),
+                            text = status2.uppercase(),
                             style = MaterialTheme.typography.bodySmall,
                         )
                         Text(
@@ -156,7 +155,7 @@ fun ShipmentDeliveryCard(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = customer1.name ?: customer1.email,
+                            text = customer1.name.toString(),
                             style = MaterialTheme.typography.bodyMediumBold,
                             color = MaterialTheme.colorScheme.onSurface
                         )
@@ -194,5 +193,6 @@ private fun Preview() {
         imageResId = ShipmentType.COURIER,
         status = ShipmentStatus.NOT_READY,
         sender = "pavel@kiparo.ru",
+        status2 = ""
     )
 }

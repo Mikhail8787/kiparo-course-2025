@@ -18,6 +18,7 @@ import com.kiparo.deliveryapp.domain.models.ShipmentStatus
 import com.kiparo.deliveryapp.domain.models.ShipmentType
 import com.kiparo.deliveryapp.domain.models.mockShipmentsGroup
 import com.kiparo.deliveryapp.presentation.core_ui.theme.space_16
+import com.kiparo.deliveryapp.presentation.utils.titleResId
 
 // For Students, read this:
 // https://developer.android.com/jetpack/compose/lists
@@ -37,7 +38,7 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
 
 
         item {
-            ShipmentSectionTitle(title = "Ready to pickup")
+            ShipmentSectionTitle(title = stringResource(id =ShipmentStatus.READY_TO_PICKUP.titleResId()))
         }
 
         // Отображение карточек для "Ready to pickup"
@@ -46,8 +47,9 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
                 id = "235678654323567889762229",
 //                status = "Issue for delivery",
                 sender = "pavel@kiparo.ru",
-                status = issuedForDelivery,
+                status = ShipmentStatus.ISSUED_FOR_DELIVERY,
                 imageResId = ShipmentType.COURIER,
+                status2 = ""
             ) // Передаем каждую карточку
         }
         item {
@@ -63,14 +65,14 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
                 id = "235678654323567889762230",
 //                status = "Ready to pickup",
                 sender = "timofey@kipro.ru",
-                status = readyToPickup,
-                imageResId = ShipmentType.PARCEL_LOCKER
+                status = ShipmentStatus.READY_TO_PICKUP,
+                imageResId = ShipmentType.PARCEL_LOCKER,
+                status2 = stringResource(id = R.string.waiting_picked_up_to)
             )
         }
 
-
         item {
-            ShipmentSectionTitle(title = "Others")
+            ShipmentSectionTitle(title = stringResource(id = ShipmentStatus.OTHER.titleResId()))
         }
 
         item {
@@ -78,8 +80,9 @@ fun Shipments(group: ShipmentGroup, modifier: Modifier = Modifier) {
                 id = "235678654323567889762230",
 //                status = "Delivered",
                 sender = "Konstantin Ivanov",
-                status = delivered,
-                imageResId = ShipmentType.PARCEL_LOCKER
+                status = ShipmentStatus.DELIVERED,
+                imageResId = ShipmentType.PARCEL_LOCKER,
+                status2 = stringResource(id = R.string.status_delivered)
             ) // Передаем каждую карточку
         }
 
