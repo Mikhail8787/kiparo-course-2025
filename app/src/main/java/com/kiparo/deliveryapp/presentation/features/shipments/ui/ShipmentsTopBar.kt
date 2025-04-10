@@ -19,7 +19,7 @@ import com.kiparo.deliveryapp.presentation.core_ui.theme.bodyMediumBold
 fun ShipmentsTopBar(
     modifier: Modifier = Modifier
 ) {
-    TopAppBar(modifier = modifier.background(MaterialTheme.colorScheme.onSurface),
+    TopAppBar(modifier = modifier.background(MaterialTheme.colorScheme.surface),
         title = {
             Text(
                 text = stringResource(id = R.string.app_name),
