@@ -13,17 +13,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
+import com.kiparo.deliveryapp.presentation.features.shipments.ui.ShipmentsTopBar
 
 // For Students, read this:
 // https://developer.android.com/jetpack/compose/designsystems/anatomy
 
 private val darkColorScheme = darkColorScheme(
-    // TODO Implement
+    primary = PrimaryColor,
+    background = BackgroundColor,
+    surface = SurfaceColor,
+    surfaceVariant = SurfaceVariantColor,
+    onSurfaceVariant = OnSurfaceVariantColor,
+    onSurface = OnSurfaceColor
 )
 
 private val lightColorScheme = lightColorScheme(
-    // TODO Implement
+    primary = PrimaryColor,
+    background = BackgroundColor,
+    surface = SurfaceColor,
+    surfaceVariant = SurfaceVariantColor,
+    onSurfaceVariant = OnSurfaceVariantColor,
+    onSurface = OnSurfaceColor
 )
 
 @Composable
@@ -39,7 +51,7 @@ fun DeliveryAppTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = colorScheme.surface.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
@@ -48,3 +60,4 @@ fun DeliveryAppTheme(
         colorScheme = colorScheme, typography = Typography, content = content
     )
 }
+
