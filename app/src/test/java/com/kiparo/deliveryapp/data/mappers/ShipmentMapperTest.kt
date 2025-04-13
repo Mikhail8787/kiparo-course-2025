@@ -32,17 +32,17 @@ class ShipmentMapperTest {
 
     @Test
     fun `map CustomerNetwork to domain is correct`() {
-//        val customerNetwork = mockCustomerNetwork()
+        val customerNetwork = mockCustomerNetwork()
 
-//        val expected = Customer(
-//            email = customerNetwork.email,
-//            phoneNumber = customerNetwork.phoneNumber,
-//            name = customerNetwork.name
-//        )
+        val expected = Customer(
+            email = customerNetwork.email ?: "",
+            phoneNumber = customerNetwork.phoneNumber ?:"",
+            name = customerNetwork.name ?:""
+        )
 //
-//        val  actual = customerNetwork.toDomain()
+        val  actual = customerNetwork.toDomain()
 
-        Assert.assertEquals(true, true)
+        Assert.assertEquals(expected, actual)
     }
 
 }

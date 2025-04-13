@@ -150,7 +150,7 @@ fun ShipmentDeliveryCard(
                             ) //bodySmallBold
                             Image(
                                 painter = painterResource(id = R.drawable.ic_arrowright),
-                                contentDescription = stringResource(R.string.delivery_truck),
+                                contentDescription = "arrow",
                             )
                         }
                     }
