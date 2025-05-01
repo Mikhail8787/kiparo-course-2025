@@ -39,7 +39,7 @@ class ShipmentMapperTest {
             phoneNumber = customerNetwork.phoneNumber ?:"",
             name = customerNetwork.name ?:""
         )
-//
+
         val  actual = customerNetwork.toDomain()
 
         Assert.assertEquals(expected, actual)

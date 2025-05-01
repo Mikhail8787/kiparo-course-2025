@@ -57,11 +57,3 @@ val Typography.bodyMediumBold: TextStyle
             letterSpacing = 0.4.sp
         )
     }
-
-
-
-
-
-
-
-

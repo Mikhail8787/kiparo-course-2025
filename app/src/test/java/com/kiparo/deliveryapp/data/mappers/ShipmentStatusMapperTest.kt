@@ -1,7 +1,6 @@
 package com.kiparo.deliveryapp.data.mappers
 
 import com.kiparo.deliveryapp.domain.models.ShipmentStatus
-import com.kiparo.deliveryapp.domain.models.ShipmentType
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
