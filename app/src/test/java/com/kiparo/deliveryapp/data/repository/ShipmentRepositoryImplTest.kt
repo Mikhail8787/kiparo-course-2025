@@ -12,13 +12,12 @@ import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert
 import org.junit.Test
 
 class ShipmentRepositoryImplTest {
 
-    private val shipmentApi: ShipmentApi = mockk()
-    private val repository = ShipmentRepositoryImpl(shipmentApi, Dispatchers.IO)
+    private val shipmentApi: ShipmentApi = mockk()//FIXME
+    private val repository = ShipmentRepositoryImpl(shipmentApi, Dispatchers.IO)//FIXME
 
     @Test
     fun `shipments grouped correctly`() = runTest {

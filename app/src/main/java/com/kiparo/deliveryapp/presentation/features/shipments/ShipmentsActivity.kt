@@ -24,6 +24,7 @@ import com.kiparo.deliveryapp.BuildConfig
 import com.kiparo.deliveryapp.data.network.provideMoshi
 import com.kiparo.deliveryapp.data.network.provideShipmentApi
 import com.kiparo.deliveryapp.data.repository.ShipmentRepositoryImpl
+import com.kiparo.deliveryapp.di.DiProvider
 import com.kiparo.deliveryapp.domain.models.ShipmentGroup
 import com.kiparo.deliveryapp.domain.models.mockShipmentsGroup
 import com.kiparo.deliveryapp.domain.repository.ShipmentRepository
@@ -35,10 +36,12 @@ import kotlinx.coroutines.Dispatchers
 class ShipmentsActivity : ComponentActivity() {
     //мой тестовый первый проект
 
-    private val shipmentRepository: ShipmentRepository = ShipmentRepositoryImpl(
-        shipmentApi = provideShipmentApi(apiUrl = BuildConfig.API_URL, moshi = provideMoshi()),
-        dispatcher = Dispatchers.IO
-    )
+//    private val shipmentRepository: ShipmentRepository = ShipmentRepositoryImpl(
+//        shipmentApi = provideShipmentApi(apiUrl = BuildConfig.API_URL, moshi = provideMoshi()),
+//        dispatcher = Dispatchers.IO
+//    )
+
+    private val shipmentRepository = DiProvider.di.get(ShipmentRepository::class)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
